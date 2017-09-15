@@ -17,9 +17,10 @@ gulp.task('sass',function(){
 
 gulp.task('server',function(){
     browserSync.init({
+        proxy: "localhost:8000",
 
-            proxy: "localhost:8000"
-
+        port: 8888,
+        notify: true
     });
 
     gulp.watch('views/*.pug').on('change', reload);
