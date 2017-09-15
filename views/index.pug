@@ -1,0 +1,42 @@
+include mixin.pug
+doctype html
+html
+    head
+        title
+        link(rel="stylesheet", href="main.css")     
+        link(rel="stylesheet", href="font-awesome.min.css") 
+
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        meta(http-equiv="X-UA-Compatible", content="IE=7")
+        meta(http-equiv="Content-Type", content="text/html;charset=UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    body 
+    
+             
+        h1.title CRUD Libros Mongo
+
+        form.form(action="",method="post")
+            label.input__title--label(for="title") Titulo
+            input.input__title(id="title", name="title", type="text")
+            label.input__author--label(for="author") Autor
+            input.input__author(id="author", name="author", type="text")
+            textarea.input__text(id="text", name="text")
+            button.btn--submit(type="submit") Guardar Libro
+
+        seccion.search
+            label.search__label(for="searchTitle") Buscar por Titulos
+            input.search__input(id="searchTitle",type="text")
+
+        seccion.lista
+            h2.lista__title  Lista de libros
+            ul(id="listBook")
+                each item in books
+                    +book(item.title,item.text,item.author,item.id)
+
+
+
+        script(
+            src="https://code.jquery.com/jquery-3.2.1.min.js",
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=",
+            crossorigin="anonymous")
+        script(src="app.js")

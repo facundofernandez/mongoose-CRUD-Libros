@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css?family=Bitter");
+@import url("https://fonts.googleapis.com/css?family=Acme");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box; }
+
+body {
+  padding: 50px; }
+
+.title {
+  font-family: 'Acme', sans-serif;
+  color: blue;
+  text-align: center; }
+
+.styleInput, .input__title, .input__author, .input__text, .search__input {
+  border: 0;
+  padding: 10px;
+  background: rgba(0, 0, 255, 0.2);
+  outline: none;
+  margin-bottom: 20px;
+  color: blue;
+  font-weight: bold; }
+
+.form {
+  width: 600px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: 10px; }
+
+.btn--submit {
+  padding: 10px;
+  width: 150px;
+  -ms-flex-item-align: center;
+      align-self: center; }
+
+.input__title--label {
+  font-family: 'Bitter', serif;
+  color: blue; }
+
+.input__author--label {
+  font-family: 'Bitter', serif;
+  color: blue; }
+
+.search {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  width: 600px;
+  margin: 0 auto; }
+  .search__label {
+    font-family: 'Bitter', serif;
+    color: blue; }
+
+.lista {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 20px;
+  width: 600px;
+  margin: 0 auto; }
+  .lista__title {
+    font-family: 'Bitter', serif;
+    color: blue;
+    margin-bottom: 10px; }
+  .lista__book {
+    position: relative;
+    list-style: none;
+    padding: 10px;
+    border-bottom: 5px solid rgba(13, 13, 129, 0.5);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    background: rgba(0, 0, 255, 0.2); }
+    .lista__book--title {
+      font-size: 20px;
+      -ms-flex-item-align: center;
+          align-self: center; }
+    .lista__book--author {
+      -ms-flex-item-align: center;
+          align-self: center; }
+    .lista__book--text {
+      padding: 0 10px;
+      -ms-flex-item-align: center;
+          align-self: center; }
+    .lista__book--btn {
+      -ms-flex-item-align: center;
+          align-self: center;
+      width: 30px;
+      height: 30px;
+      line-height: 1.8;
+      background: rgba(255, 0, 0, 0.2);
+      color: red;
+      text-align: center;
+      border-radius: 50%; }
+      .lista__book--btn:before {
+        font-family: 'FontAwesome';
+        content: '\f1f8'; }
+      .lista__book--btn:hover {
+        background: rgba(255, 0, 0, 0.8);
+        color: white;
+        cursor: pointer; }
