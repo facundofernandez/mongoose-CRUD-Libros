@@ -8,6 +8,7 @@
   margin:0;
   padding:0;
   box-sizing: content-box;
+  transition: .3s all;
 }
 
 body{
@@ -31,7 +32,13 @@ body{
   //width: 200px;
   color:blue;
   font-weight: bold;
+  border-bottom:3px solid transparent;
+  &:focus{
+    border-bottom:3px solid blue;
+  }
 }
+
+
 
 .form{
   width: 600px;

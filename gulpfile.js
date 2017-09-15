@@ -3,15 +3,7 @@ const
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     browserSync = require('browser-sync').create(),
-    reload = browserSync.reload,
-    pug = require('gulp-pug');
-
-gulp.task('font',function(){
-    let stream = gulp.src('node_modules/font-awesome/css/font-awesome.min.css')
-        .pipe(gulp.dest('./'));
-
-    return stream;
-})
+    reload = browserSync.reload;
 
 gulp.task('sass',function(){
     let stream = gulp.src('sass/main.scss')
@@ -23,14 +15,11 @@ gulp.task('sass',function(){
     return stream;
 });
 
-
-
-
 gulp.task('server',function(){
     browserSync.init({
-        server: {
-            baseDir: "./public"
-        }
+
+            proxy: "localhost:8000"
+
     });
 
     gulp.watch('views/*.pug').on('change', reload);

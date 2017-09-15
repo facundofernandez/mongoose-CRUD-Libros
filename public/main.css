@@ -4,7 +4,9 @@
   margin: 0;
   padding: 0;
   -webkit-box-sizing: content-box;
-          box-sizing: content-box; }
+          box-sizing: content-box;
+  -webkit-transition: .3s all;
+  transition: .3s all; }
 
 body {
   padding: 50px; }
@@ -21,7 +23,10 @@ body {
   outline: none;
   margin-bottom: 20px;
   color: blue;
-  font-weight: bold; }
+  font-weight: bold;
+  border-bottom: 3px solid transparent; }
+  .styleInput:focus, .input__title:focus, .input__author:focus, .input__text:focus, .search__input:focus {
+    border-bottom: 3px solid blue; }
 
 .form {
   width: 600px;

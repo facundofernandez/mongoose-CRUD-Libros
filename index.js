@@ -32,14 +32,14 @@ app.get('/',function(req, res){
   
     /** Encontrar documentos*/
     bookModel.find().then((data, err) => {
-        console.log(err);
+        //console.log(err);
         res.render('index', {books: data})
     });
 
 
 
     /** Buscar y actualizar*/
-    bookModel.findOne({
+    /*bookModel.findOne({
 
         title: "Harry Potter"
 
@@ -52,7 +52,7 @@ app.get('/',function(req, res){
         });
 
 
-    });
+    });*/
 
 
 
