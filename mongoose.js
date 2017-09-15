@@ -11,9 +11,9 @@ let bookModel = mongoose.model('Libro', bookSchema);
 
 bookModel
     .find({},{
-        title:1
+     //   title:1
     })
-    .limit(2)
+    //.limit(2)
     .then(imprimirDatos);
 
 bookModel
@@ -28,7 +28,13 @@ bookModel
     })
     .then(imprimirDatos);
 
+bookModel
+    .where({ _id: '59bac765039e913c8bee904d' })
+    .update({ total : 100})
 
+bookModel
+    .findOne({ _id: '59bac765039e913c8bee904d' })
+    .then(updateDoc);
 
 
 
@@ -36,4 +42,15 @@ function imprimirDatos(data, err){
     "use strict";
     console.log("---------------------- consulta -----------------------");
     console.log(data);
+    return data
+}
+
+function updateDoc(data){
+    "use strict";
+
+    data.title = "Nuevo titulo";
+    data.total = 400;
+    data.save().then((res) => {
+        console.log("Respuesta update: ",res)
+    })
 }
