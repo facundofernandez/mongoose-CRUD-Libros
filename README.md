@@ -5,4 +5,6 @@
 ### BackEnd: nodejs, mongoose
 ### FrondEnd: pug, sass, jquery
 
-![Alt text](http://full/path/to/foto.jpg "Optional title")
+<p align="center">
+  <img width="460" height="300" src="https://github.com/facundofernandez/mongoose-CRUD-Libros/blob/master/foto.png">
+</p>
