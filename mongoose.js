@@ -54,3 +54,5 @@ function updateDoc(data){
         console.log("Respuesta update: ",res)
     })
 }
+
+
