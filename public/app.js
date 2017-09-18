@@ -26,9 +26,12 @@ $('form').submit(function(event){
     var fd = new FormData($( "form" ));
 
     fetch(`/api/book/${id}`,{
-      method: method,
-      headers: myHeaders,
-      body: $( "form" ).serialize()
+      method: 'put',
+      //headers: myHeaders,
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify({ id: 2324})//new FormData(document.querySelector('form'))
     })
     .then(res => res.json())
     .then(data => console.log(data))
