@@ -6,8 +6,13 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.1",
+    "cors": "^2.8.4",
+    "crypto": "^1.0.1",
     "express": "^4.15.4",
+    "jwt-simple": "^0.5.1",
+    "moment": "^2.18.1",
     "mongoose": "^4.11.11",
     "pug": "^2.0.0-rc.4"
   },
@@ -15,6 +20,7 @@
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-sass": "^3.1.0"
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.1"
   }
 }

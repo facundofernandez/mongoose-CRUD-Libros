@@ -1,0 +1,54 @@
+
+.msj{
+  width: fit-content;
+  height: 50px;
+  //position: absolute;
+  transform: translate(0,-50px);
+  transition: .3s all;
+  z-index: -1;
+  opacity: 0;
+  margin:0 auto;
+  &__texto{
+    padding: 15px;
+    padding-left:50px;line-height: 1.2;
+  }
+
+  &--ok,&--error{
+    position: relative;
+    transform: translate(0,20px);
+    opacity: 1;
+    border-radius: 4px;
+    &:before{
+      font-family: 'FontAwesome';
+      position: absolute;
+      text-align: center;
+      line-height: 1.8;
+      width: 40px;
+      height: 40px;
+      font-size: 22px;
+      top:5px;
+      left:10px;
+
+    }
+  }
+
+  &--ok{
+    color:green;
+    border:2px solid rgba(green,.3);
+    background-color: rgba(green,.4);
+    &:before{
+      content: '\f164';
+      color:green;
+    }
+  }
+
+  &--error{
+    color:crimson;
+    border:2px solid rgba(red,.2);
+    background-color: rgba(red,.3);
+    &:before{
+      color:crimson;
+      content: '\f071';
+    }
+  }
+}

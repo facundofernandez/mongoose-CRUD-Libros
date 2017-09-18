@@ -1,0 +1,176 @@
+
+.title{
+  font-family: 'Acme', sans-serif;
+  color: blue;
+  text-align: center;
+}
+
+.styleInput{
+  border:0;
+  padding:10px;
+  background: rgba(blue,.2);
+  outline: none;
+  margin-bottom:20px;
+  //width: 200px;
+  color:blue;
+  font-weight: bold;
+  border-bottom:3px solid transparent;
+  &:focus{
+    border-bottom:3px solid blue;
+  }
+}
+
+
+
+.form{
+  width: 600px;
+  margin:0 auto;
+  margin-bottom:20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+  //align-items: flex-start;
+  padding:10px;
+  //border:2px solid black;
+  position: relative;
+}
+
+.btn--submit{
+  padding:10px;
+  width: 150px;
+  align-self: center;
+}
+
+.input{
+
+  &__title{
+    @extend .styleInput;
+    &--label{
+      font-family: 'Bitter', serif;
+      color:blue;
+    }
+  }
+
+  &__author{
+    @extend .styleInput;
+    &--label{
+      font-family: 'Bitter', serif;
+      color:blue;
+    }
+  }
+
+  &__text{
+    @extend .styleInput;
+  }
+
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding:20px;
+  width: 600px;
+  margin:0 auto;
+
+  &__input{
+    @extend .styleInput;
+  }
+
+  &__label{
+    font-family: 'Bitter', serif;
+    color:blue;
+  }
+}
+
+.lista{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  padding:20px;
+  width: 600px;
+  margin:0 auto;
+  &__title{
+    font-family: 'Bitter', serif;
+    color:blue;
+    margin-bottom: 10px;
+  }
+
+  &__book{
+    position: relative;
+    list-style: none;
+    padding:10px;
+    border-bottom: 5px solid rgba(#0D0D81,.5);
+    display: flex;
+    justify-content: space-between;
+    background: rgba(blue,.2);
+    &--title{
+      font-size: 20px;
+      align-self: center;
+    }
+    &--author{
+      align-self: center;
+    }
+    &--text{
+      padding:0 10px;
+
+      align-self: center;
+
+    }
+
+    &--btn{
+      align-self: center;
+
+
+      width: 30px;
+      height: 30px;
+      line-height: 1.8;
+
+      //border:2px solid rgba(black,.5);
+      background: rgba(red,.2);
+      color:crimson;
+      text-align: center;
+      border-radius: 50%;
+      &:before{
+        font-family:'FontAwesome';
+        content: '\f1f8';
+      }
+      &:hover{
+        //border:2px solid rgba(black,.5);
+        background: rgba(crimson,.8);
+        color:white;
+        cursor: pointer;
+      }
+
+    }
+    &--btnEdit{
+      align-self: center;
+
+
+      width: 30px;
+      height: 30px;
+      line-height: 1.8;
+
+      //border:2px solid rgba(black,.5);
+      background: rgba(green,.2);
+      color:green;
+      text-align: center;
+      border-radius: 50%;
+      &:before{
+        font-family:'FontAwesome';
+        content: '\f040';
+      }
+      &:hover{
+        //border:2px solid rgba(black,.5);
+        background: rgba(green,.8);
+        color:white;
+        cursor: pointer;
+      }
+
+    }
+
+  }
+}

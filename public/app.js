@@ -14,35 +14,85 @@ title.keyup(function(event){
 });
 
 $('form').submit(function(event){
-    console.log(event);
-    event.preventDefault();
-    $.post("/add", $( "form" ).serialize() )
-        .done(function (data) {
 
-            console.log(data)
-            if(data.ok){
-                $('#title').val("").focus();
-                $('#author').val("");
-                $('#text').val("");
-            }
-        });
+    event.preventDefault();
+    let id = $('#id').val();
+    id = typeof id == "undefined" ? "" : id;
+    const myHeaders = new Headers();
+    if(typeof localStorage.token !== "undefined")
+      myHeaders.append('authorization',`Bearer ${localStorage.token}`)
+    let evento = $('.btn--submit').data("event");
+    let method = evento !== "edit" ? "post" : "put";
+    var fd = new FormData($( "form" ));
+
+    fetch(`/api/book/${id}`,{
+      method: method,
+      headers: myHeaders,
+      body: $( "form" ).serialize()
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+
+
+    // $.post(accion, $( "form" ).serialize() )
+    //     .done(function (data) {
+    //         console.log("Edit: ", data)
+    //         if(data.ok){
+    //             $('#title').val("").focus();
+    //             $('#author').val("");
+    //             $('#text').val("");
+    //             $('#id').val("");
+    //             $('.btn--submit').data("event","")
+    //         }
+    //         msj(data)
+    //         buscarTitulo( {} ,function(data){
+    //             crearLista(data);
+    //         });
+    //     });
+
 
 });
 
-$('.lista__book--btn').click(function(event){
-    console.log(event);
+$('ul#listBook').on("click",".lista__book--btn",function(event){
+
+  event.preventDefault();
+  let id = event.target.dataset.id;
+  const myHeaders = new Headers();
+  if(typeof localStorage.token !== "undefined")
+    myHeaders.append('authorization',`Bearer ${localStorage.token}`)
+
+  fetch(`/api/book/${id}`,{
+    method: 'delete',
+    headers: myHeaders,
+    body: JSON.stringify({ id: id})
+  })
+  .then(res => res.json())
+  .then(data => console.log(data))
+
+    // $.post("/remove", { id: id} )
+    // .done(function (data) {
+
+    //     console.log(data)
+
+    //     buscarTitulo( {} ,function(data){
+    //         crearLista(data);
+    //     });
+    // });
+});
+
+$('ul#listBook').on("click",".lista__book--btnEdit",function(event){
+    let padre = $(this).parent();
+    let title = padre.find(".lista__book--title").html();
+    let author = padre.find(".lista__book--author").html();
+    let text = padre.find(".lista__book--text").html();
+    let id = $(this).data("id");
     event.preventDefault();
-    let id = event.target.dataset.id;
-    $.post("/remove", { id: id} )
-    .done(function (data) {
 
-        console.log(data)
-        buscarTitulo( {} ,function(data){
-            crearLista(data);
-        });
-    });
-
-    
+    $('#title').val(title).focus();
+    $('#author').val(author);
+    $('#text').val(text);
+    $('#id').val(id);
+    $('.btn--submit').data("event", "edit")
 
 });
 
@@ -65,9 +115,23 @@ function crearLista(data){
             <span class="lista__book--text">${x.text}</span>
             <cite class="lista__book--author">${x.author}</cite>
             <span class="lista__book--btn" data-id="${x._id}"></span>
+            <span class="lista__book--btnEdit" data-id="${x._id}"></span>
         </li>
         `;
     }
     listaHTML += '</ul>';
     lista.html(listaHTML);
+}
+
+function msj(data){
+    let divMsj = $('#mensaje');
+    let divMsjTexto = $('#mensaje .msj__texto');
+    let clase = "";
+    divMsjTexto.html(data.msj);
+    clase = data.ok ? "msj--ok" : "msj--error";
+    divMsj.toggleClass(clase);
+
+    setTimeout(()=>{
+        divMsj.toggleClass(clase);
+    },3000)
 }
